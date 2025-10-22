@@ -9,11 +9,13 @@ class TimerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final duration = context.select((TimerBloc bloc) => bloc.state.duration);
+    // MODIFICADO: Leemos 'currentDuration' en lugar de 'duration'
+    final duration =
+        context.select((TimerBloc bloc) => bloc.state.currentDuration);
     final minutesStr = ((duration / 60) % 60).floor().toString().padLeft(
-      2,
-      '0',
-    );
+          2,
+          '0',
+        );
     final secondsStr = (duration % 60).floor().toString().padLeft(2, '0');
     return Text(
       '$minutesStr:$secondsStr',

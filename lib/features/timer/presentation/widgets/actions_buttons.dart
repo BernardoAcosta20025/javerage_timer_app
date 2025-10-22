@@ -20,8 +20,9 @@ class ActionsButtons extends StatelessWidget {
                 FloatingActionButton(
                   child: const Icon(Icons.play_arrow),
                   onPressed: () => context.read<TimerBloc>().add(
-                    TimerStarted(duration: state.duration),
-                  ),
+                        // MODIFICADO: Usar 'currentDuration'
+                        TimerStarted(duration: state.currentDuration),
+                      ),
                 ),
               ],
               TimerTicking() => [
@@ -30,6 +31,13 @@ class ActionsButtons extends StatelessWidget {
                   onPressed: () =>
                       context.read<TimerBloc>().add(const TimerPaused()),
                 ),
+                // --- INICIO DESAFÍO 4 ---
+                FloatingActionButton(
+                  child: const Icon(Icons.flag),
+                  onPressed: () =>
+                      context.read<TimerBloc>().add(const TimerLapPressed()),
+                ),
+                // --- FIN DESAFÍO 4 ---
                 FloatingActionButton(
                   child: const Icon(Icons.replay),
                   onPressed: () =>

@@ -38,3 +38,8 @@ class TimerPaused extends TimerEvent {
 class TimerReset extends TimerEvent {
   const TimerReset();
 }
+
+// AÑADIDO: Evento para marcar una vuelta
+class TimerLapPressed extends TimerEvent {
+  const TimerLapPressed();
+}
